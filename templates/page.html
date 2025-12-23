@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{ title }}</title>
+  {% set favicon_svg = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">' ~ favicon_emoji ~ '</text></svg>' %}
+  <link rel="icon" href="data:image/svg+xml,{{ favicon_svg | urlencode }}">
+  <link rel="stylesheet" href="static/style.css" />
+  <link rel="stylesheet" href="static/photoswipe/photoswipe.css" />
+</head>
+
+<body>
+  {% if header_text %}
+  {% include "header.html" %}
+  {% endif %}
+  <main>
+    <div class="gallery" id="gallery" data-margin="{{ margin }}">
+      {% for item in items %}
+      {% include "gallery_item.html" %}
+      {% endfor %}
+    </div>
+  </main>
+  {% if footer_text %}
+  {% include "footer.html" %}
+  {% endif %}
+  <script type="module" src="static/app.js"></script>
+  <div class="scroll-spacer" aria-hidden="true"></div>
+</body>
+
+</html>

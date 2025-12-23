@@ -1,0 +1,25 @@
+[project]
+name = "gallery"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+  "Jinja2>=3.1.0",
+  "Pillow>=10.0.0",
+  "tqdm>=4.67.1",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff>=0.6.0",
+  "mypy>=1.10.0",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py314"
+
+[tool.mypy]
+python_version = "3.14"
+warn_unused_ignores = true
+warn_redundant_casts = true
+warn_return_any = true
